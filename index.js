@@ -4,7 +4,7 @@ const config = require('./config');
 const joinRequestHandler = require('./handlers/joinRequest');
 const adminActionsHandler = require('./handlers/adminActions');
 
-// 1. Bot Initsializatsiyasi
+// 1. Bot Initsializatsiyasi.
 const bot = new Telegraf(config.BOT_TOKEN);
 
 // 2. Render uxlab qolmasligi uchun Express Health Check Server
