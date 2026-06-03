@@ -4,7 +4,7 @@ const config = require('./config');
 const joinRequestHandler = require('./handlers/joinRequest');
 const adminActionsHandler = require('./handlers/adminActions');
 
-// 1. Bot Initsializatsiyasi.
+// 1. Bot Initsializatsiyasi
 const bot = new Telegraf(config.BOT_TOKEN);
 
 // 2. Render uxlab qolmasligi uchun Express Health Check Server
@@ -13,6 +13,9 @@ app.get('/', (req, res) => res.send('Bot is running and listening to join reques
 app.listen(config.PORT, () => console.log(`[Server] Health check port ${config.PORT} da ishga tushdi.`));
 
 // 3. Event Listenerlar
+// Botga /start bosilganda javob berishi uchun
+bot.start((ctx) => ctx.reply('Assalomu alaykum, Admin! Men guruhdagi so\'rovlarni kuzatib turibman. 🛡'));
+
 // Chatga qo'shilish so'rovini ushlash
 bot.on('chat_join_request', joinRequestHandler);
 
